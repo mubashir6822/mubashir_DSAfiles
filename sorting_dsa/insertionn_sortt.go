@@ -2,38 +2,23 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
-
-func insertionSort(arr []int) {
-	for i := 0; i < len(arr); i++ {
-		var temp = arr[i]
-		var holePosition = i
-
-		for holePosition > 0 && arr[holePosition - 1] > temp {
-			arr[holePosition] = arr[holePosition - 1]
-			holePosition--
-		}
-            
-		arr[holePosition] = temp
-	}
-}
-
-func printArray(arr []int) {
-	for i := 0; i < len(arr); i++ {
-		fmt.Print(strconv.Itoa(arr[i]) + " ")
-	}
-	fmt.Println("")
-}
-
 func main() {
-
-	var arr = []int { 15, 3, -2,13 , 12, 6, -9, 9, 0 }
-
-	fmt.Print("Before Sorting: ")
-	printArray(arr)
-
-	insertionSort(arr)
-	fmt.Print("After Sorting: ")
-	printArray(arr)
+	fmt.Println("Inseration Sort")
+	arr := []int{10, 15, 2, 5, 3, 11}
+	fmt.Println("Before sorting")
+	fmt.Println(arr)
+	fmt.Println("After sorting")
+	fmt.Println(insertionSort(arr))
+}
+func insertionSort(array []int) []int {
+	for i := range array {
+		for j := i; j > 0 && array[j] < array[j-1]; j-- {
+			swap(j, j-1, array)
+		}
+	}
+	return array
+}
+func swap(i, j int, array []int) {
+	array[i], array[j] = array[j], array[i]
 }
