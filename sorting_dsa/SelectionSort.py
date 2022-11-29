@@ -10,7 +10,7 @@ def selectionsort(A):
         A[position] = temp
 
 
-A = [3, 5, 8, 9, 6, 2]
-print('Original Array:',A)
+L = [3, 5, 8, 9, 6, 2]
+print('Before sorting, Original list:',L)
 selectionsort(A)
-print('Sorted Array:',A)
+print('After sorting, Sorted list:',L)
